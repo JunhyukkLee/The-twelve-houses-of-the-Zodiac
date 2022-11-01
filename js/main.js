@@ -67,24 +67,12 @@ Cancer();
 Jemini();
 Virgo();
 Libra();
-lineTaurus();
-lineLeo();
-lineCancer();
-lineJemini();
-lineVirgo();
-lineLibra();
 Aries();
 Pisces();
 Aquarius();
 Capricorn();
 Sagittarius();
 Scorpius();
-lineAries();
-linePisces();
-lineAquarius();
-lineCapricorn();
-lineSagittarius();
-lineScorpius();
 
 renderer.render(scene, camera);
 
@@ -138,6 +126,7 @@ document.getElementById("btn_Aries").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-20, -20, 20);
+    lineAries();
 };
 document.getElementById("btn_Taurus").onclick = function (event) {
     if (selectedCons !== 'Taurus') {
@@ -147,6 +136,7 @@ document.getElementById("btn_Taurus").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-10, -30, 55);
+    lineTaurus();
 };
 document.getElementById("btn_Gemini").onclick = function (event) {
     if (selectedCons !== 'Gemini') {
@@ -156,6 +146,7 @@ document.getElementById("btn_Gemini").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(5, -5, 20);
+    lineJemini();
 };
 document.getElementById("btn_Cancer").onclick = function (event) {
     if (selectedCons !== 'Cancer') {
@@ -165,6 +156,7 @@ document.getElementById("btn_Cancer").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(70, 7, 70);
+    lineCancer();
 };
 document.getElementById("btn_Leo").onclick = function (event) {
     if (selectedCons !== 'Leo') {
@@ -174,6 +166,7 @@ document.getElementById("btn_Leo").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(50, 10, 10);
+    lineLeo();
 };
 document.getElementById("btn_Virgo").onclick = function (event) {
     if (selectedCons !== 'Virgo') {
@@ -183,6 +176,7 @@ document.getElementById("btn_Virgo").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(15, -3, -5);
+    lineVirgo();
 };
 document.getElementById("btn_Libra").onclick = function (event) {
     if (selectedCons !== 'Libra') {
@@ -192,6 +186,7 @@ document.getElementById("btn_Libra").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(5, 0, -5);
+    lineLibra();
 };
 document.getElementById("btn_Scorpio").onclick = function (event) {
     if (selectedCons !== 'Scorpio') {
@@ -201,6 +196,7 @@ document.getElementById("btn_Scorpio").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(1, 3, -10);
+    lineScorpius();
 };
 document.getElementById("btn_Sagittarius").onclick = function (event) {
     if (selectedCons !== 'Sagittarius') {
@@ -210,6 +206,7 @@ document.getElementById("btn_Sagittarius").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-5, 0, -10);
+    lineSagittarius();
 };
 document.getElementById("btn_Capricon").onclick = function (event) {
     if (selectedCons !== 'Capricon') {
@@ -219,6 +216,7 @@ document.getElementById("btn_Capricon").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-15, 0, -10);
+    lineCapricorn();
 };
 document.getElementById("btn_Aquarius").onclick = function (event) {
     if (selectedCons !== 'Aquarius') {
@@ -228,6 +226,7 @@ document.getElementById("btn_Aquarius").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-15, -5, 0);
+    lineAquarius();
 };
 document.getElementById("btn_Pisces").onclick = function (event) {
     if (selectedCons !== 'Pisces') {
@@ -237,6 +236,7 @@ document.getElementById("btn_Pisces").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-50, -30, 20);
+    linePisces();
 };
 
 document.getElementById("prompt").onclick = function (event) {
