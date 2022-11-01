@@ -281,9 +281,6 @@ function createStars(radius, segments) {
     );
 }
 
-function init_position(){
-
+function init_position() {
 
 }
-
-
