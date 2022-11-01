@@ -340,6 +340,116 @@ function createStars(radius, segments) {
     );
 }
 
+
+function AquariusBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/aquarius.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function AriesBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/aries.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function CancerBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/cancer.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function CapricornBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/capricorn.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function GeminiBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/gemini.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function LeoBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/leo.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function LibraBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/libra.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function PiscesBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/pisces.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function SagittariusBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/sagittarius.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function ScorpiusBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/scorpius.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function TaurusBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/taurus.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+function VirgoBackground(radius, segments) {
+    return new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, segments),
+        new THREE.MeshBasicMaterial({
+            map:  THREE.ImageUtils.loadTexture('images/virg.png'),
+            side: THREE.BackSide
+        })
+    );
+}
+
 function init_position() {
 
 }
