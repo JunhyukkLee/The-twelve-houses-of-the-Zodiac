@@ -144,7 +144,7 @@ createSpotlights(scene);
 // Close up taget
 var selectedCons = 0;
 
-camera.position.set(0, 0, -10);
+camera.position.set(300, 300, 500);
 document.getElementById("btn_Aries").onclick = function (event) {
     if (selectedCons !== 'Aries') {
             selectedCons = 'Aries'
@@ -153,6 +153,7 @@ document.getElementById("btn_Aries").onclick = function (event) {
     controls.reset();
     controls.zoomCamera(100);
     camera.position.set(-20, -20, 20);
+    AriesBackground(480, 100);
 };
 document.getElementById("btn_Taurus").onclick = function (event) {
     if (selectedCons !== 'Taurus') {
@@ -161,6 +162,7 @@ document.getElementById("btn_Taurus").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-10, -30, 55);
+    TaurusBackground(480, 100);
 };
 document.getElementById("btn_Gemini").onclick = function (event) {
     if (selectedCons !== 'Gemini') {
@@ -169,6 +171,7 @@ document.getElementById("btn_Gemini").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(5, -5, 20);
+    GeminiBackground(480, 100);
 };
 document.getElementById("btn_Cancer").onclick = function (event) {
     if (selectedCons !== 'Cancer') {
@@ -178,6 +181,7 @@ document.getElementById("btn_Cancer").onclick = function (event) {
     controls.reset();
     camera.position.set(70, 7, 70);
     controls.zoomCamera();
+    CancerBackground(480, 100);
 };
 document.getElementById("btn_Leo").onclick = function (event) {
     if (selectedCons !== 'Leo') {
@@ -186,6 +190,7 @@ document.getElementById("btn_Leo").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(50, 10, 10);
+    LeoBackground(480, 100);
 };
 document.getElementById("btn_Virgo").onclick = function (event) {
     if (selectedCons !== 'Virgo') {
@@ -194,6 +199,7 @@ document.getElementById("btn_Virgo").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(15, -3, -5);
+    VirgoBackground(480, 100);
 };
 document.getElementById("btn_Libra").onclick = function (event) {
     if (selectedCons !== 'Libra') {
@@ -202,6 +208,7 @@ document.getElementById("btn_Libra").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(5, 0, -5);
+    LibraBackground(480, 100);
 };
 document.getElementById("btn_Scorpio").onclick = function (event) {
     if (selectedCons !== 'Scorpio') {
@@ -210,6 +217,7 @@ document.getElementById("btn_Scorpio").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(1, 3, -10);
+    ScorpioBackground(480, 100);
 };
 document.getElementById("btn_Sagittarius").onclick = function (event) {
     if (selectedCons !== 'Sagittarius') {
@@ -218,6 +226,7 @@ document.getElementById("btn_Sagittarius").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-5, 0, -10);
+    SagittariusBackground(480, 100);
 };
 document.getElementById("btn_Capricon").onclick = function (event) {
     if (selectedCons !== 'Capricon') {
@@ -226,6 +235,7 @@ document.getElementById("btn_Capricon").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-15, 0, -10);
+    CapriconBackground(480, 100);
 };
 document.getElementById("btn_Aquarius").onclick = function (event) {
     if (selectedCons !== 'Aquarius') {
@@ -234,6 +244,7 @@ document.getElementById("btn_Aquarius").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-15, -5, 0);
+    AquariusBackground(480, 100);
 };
 document.getElementById("btn_Pisces").onclick = function (event) {
     if (selectedCons !== 'Pisces') {
@@ -242,6 +253,7 @@ document.getElementById("btn_Pisces").onclick = function (event) {
     }
     controls.reset();
     camera.position.set(-50, -30, 20);
+    PiscesBackground(480, 100);
 };
 
 
@@ -265,9 +277,9 @@ document.getElementById("btn_cameraReset").onclick = function (event) {
 };
 
 
+
 const animate = function () {
     requestAnimationFrame( animate );
-
     // Use trackball
     controls.update();
 
@@ -444,7 +456,7 @@ function VirgoBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
         new THREE.MeshBasicMaterial({
-            map:  THREE.ImageUtils.loadTexture('images/virg.png'),
+            map:  THREE.ImageUtils.loadTexture('images/virgo.png'),
             side: THREE.BackSide
         })
     );
