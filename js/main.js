@@ -32,7 +32,7 @@ var width  = window.innerWidth,
 // Create scene
 export const scene = new THREE.Scene();
 const loader = new THREE.TextureLoader();
-var camera = new THREE.PerspectiveCamera( 90, width / height, 1, 1000 );
+var camera = new THREE.PerspectiveCamera( 90, width / height, 1, 10000 );
 // camera.position.set(-80, -20, 20);  
 
 // TrackballControls for view control
@@ -144,7 +144,8 @@ createSpotlights(scene);
 // Close up taget
 var selectedCons = 0;
 
-camera.position.set(0, 0, -10);
+camera.position.set(300, 300, 500);
+
 document.getElementById("btn_Aries").onclick = function (event) {
     if (selectedCons !== 'Aries') {
             selectedCons = 'Aries'
@@ -286,6 +287,9 @@ document.getElementById("PlanetPositionResetBtn").onclick = function (event) {
 };
 document.getElementById("btn_cameraReset").onclick = function (event) {
     camera.position.set(300, 300, 500);
+    var stars20 = createStars(480, 100);
+    scene.add(stars20);
+
 };
 
 
