@@ -52,9 +52,7 @@ const earthTexture = loader.load("./images/earth.jpg");
 const moonTexture = loader.load("./images/moon.jpg");
 const cloudTexture = loader.load("./images/clouds.png");
 
-//starstarstarstarstarstar
-const star1Texture = loader.load("./images/moon.jpg")
-const star2Texture = loader.load("./images/moon.jpg")
+
 
 // Set Materials
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture});
@@ -62,7 +60,6 @@ const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture});
 const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
 const cloudMaterial = new THREE.MeshStandardMaterial({ map: cloudTexture, transparent: true });
 
-var earthPosition = 75;
 
 //
 // Set Mesh
@@ -128,18 +125,18 @@ const light = new THREE.PointLight("white", 1.25); //(color, intensity, distance
 light.position.set(0, 0, 0);
 scene.add(light);
 
-// Set a sub light
-createSubLigt(240, 240, 0);
-createSubLigt(240, -240, 0);
-createSubLigt(-240, 240, 0);
-createSubLigt(-240, -240, 0);
-createSubLigt(240, 0, 240);
-createSubLigt(-240, 0 ,240);
-createSubLigt(-240, 0, -240);
-createSubLigt(240, 0, -240);
-
-// Illuminate the sun
-createSpotlights(scene);
+// // Set a sub light
+// createSubLigt(240, 240, 0);
+// createSubLigt(240, -240, 0);
+// createSubLigt(-240, 240, 0);
+// createSubLigt(-240, -240, 0);
+// createSubLigt(240, 0, 240);
+// createSubLigt(-240, 0 ,240);
+// createSubLigt(-240, 0, -240);
+// createSubLigt(240, 0, -240);
+//
+// // Illuminate the sun
+// createSpotlights(scene);
 
 // Close up taget
 var selectedCons = 0;
@@ -291,6 +288,7 @@ document.getElementById("btn_cameraReset").onclick = function (event) {
     scene.add(stars20);
 
 };
+//임윤수
 
 
 
