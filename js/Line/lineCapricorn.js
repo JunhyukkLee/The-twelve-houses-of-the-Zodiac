@@ -32,7 +32,7 @@ var xdt45 = 390, ydt45 = -30, zdt45 = 225;
 var xdt56 = 400, ydt56 = -45, zdt56 = 200;
 var xdt67 = 405, ydt67 = -55, zdt67 = 185;
 var xdt78 = 390, ydt78 = -60, zdt78 = 215;
-var xdt810 = 385, ydt810 = -70, zdt810 = 240;
+var xdt810 = 375, ydt810 = -70, zdt810 = 240;
 var xdt110 = 300, ydt110 = 85, zdt110 = 320;
 
 export function lineCapricorn() {
