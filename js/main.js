@@ -22,7 +22,6 @@ import { lineAquarius } from "./Line/lineAquarius.js";
 import { lineCapricorn } from "./Line/lineCapricorn.js";
 import { lineSagittarius } from "./Line/lineSagittarius.js";
 import { lineScorpius } from "./Line/lineScorpius.js";
-// import { zod } from "popup.js";
 
 // Set width, height size
 var width = window.innerWidth,
@@ -35,7 +34,6 @@ export var camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
 
 // TrackballControls for view control
 export var controls = new THREE.TrackballControls(camera);
-
 controls.update();
 
 const renderer = new THREE.WebGLRenderer();
@@ -44,17 +42,12 @@ document.body.appendChild(renderer.domElement);
 
 // Planet
 const earthTexture = loader.load("./images/earth.jpg");
-
-
-// etc
 const moonTexture = loader.load("./images/moon.jpg");
-const cloudTexture = loader.load("./images/clouds.png");
 
 // Set Materials
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
 
 const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
-const cloudMaterial = new THREE.MeshStandardMaterial({ map: cloudTexture, transparent: true });
 
 //
 // Set Mesh
@@ -81,10 +74,6 @@ const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 earthMesh.rotation.x = -0.37 * Math.PI; // 0.37
 createPlanet(scene, earthMesh, earthGroup, -100, -90, -20, 20);
-
-const earthCloudMesh = new THREE.Mesh(geometry, cloudMaterial);
-createPlanet(scene, earthCloudMesh, earthGroup, 75, 6.01);
-earthCloudMesh.rotation.y = 6;
 
 const moonGroup = new THREE.Group();
 const moonMesh = new THREE.Mesh(geometry, moonMaterial);
@@ -116,8 +105,10 @@ createSpotlights(scene);
 // Close up taget
 var selectedCons = 0;
 
+// Default camera position
 camera.position.set(300, 300, 500);
 
+// Move to zodiac when button clicked
 document.getElementById("btn_Aries").onclick = function (event) {
     if (selectedCons !== 'Aries') {
         selectedCons = 'Aries'
@@ -128,6 +119,7 @@ document.getElementById("btn_Aries").onclick = function (event) {
     camera.position.set(-20, -20, 20);
     lineAries();
 };
+
 document.getElementById("btn_Taurus").onclick = function (event) {
     if (selectedCons !== 'Taurus') {
         selectedCons = 'Taurus'
@@ -138,6 +130,7 @@ document.getElementById("btn_Taurus").onclick = function (event) {
     camera.position.set(-10, -30, 55);
     lineTaurus();
 };
+
 document.getElementById("btn_Gemini").onclick = function (event) {
     if (selectedCons !== 'Gemini') {
         selectedCons = 'Gemini'
@@ -148,6 +141,7 @@ document.getElementById("btn_Gemini").onclick = function (event) {
     camera.position.set(5, -5, 20);
     lineJemini();
 };
+
 document.getElementById("btn_Cancer").onclick = function (event) {
     if (selectedCons !== 'Cancer') {
         selectedCons = 'Cancer'
@@ -158,6 +152,7 @@ document.getElementById("btn_Cancer").onclick = function (event) {
     camera.position.set(70, 7, 70);
     lineCancer();
 };
+
 document.getElementById("btn_Leo").onclick = function (event) {
     if (selectedCons !== 'Leo') {
         selectedCons = 'Leo'
@@ -168,6 +163,7 @@ document.getElementById("btn_Leo").onclick = function (event) {
     camera.position.set(50, 10, 10);
     lineLeo();
 };
+
 document.getElementById("btn_Virgo").onclick = function (event) {
     if (selectedCons !== 'Virgo') {
         selectedCons = 'Virgo'
@@ -178,6 +174,7 @@ document.getElementById("btn_Virgo").onclick = function (event) {
     camera.position.set(15, -3, -5);
     lineVirgo();
 };
+
 document.getElementById("btn_Libra").onclick = function (event) {
     if (selectedCons !== 'Libra') {
         selectedCons = 'Libra'
@@ -188,6 +185,7 @@ document.getElementById("btn_Libra").onclick = function (event) {
     camera.position.set(5, 0, -5);
     lineLibra();
 };
+
 document.getElementById("btn_Scorpio").onclick = function (event) {
     if (selectedCons !== 'Scorpio') {
         selectedCons = 'Scorpio'
@@ -198,6 +196,7 @@ document.getElementById("btn_Scorpio").onclick = function (event) {
     camera.position.set(1, 3, -10);
     lineScorpius();
 };
+
 document.getElementById("btn_Sagittarius").onclick = function (event) {
     if (selectedCons !== 'Sagittarius') {
         selectedCons = 'Sagittarius'
@@ -208,6 +207,7 @@ document.getElementById("btn_Sagittarius").onclick = function (event) {
     camera.position.set(-5, 0, -10);
     lineSagittarius();
 };
+
 document.getElementById("btn_Capricon").onclick = function (event) {
     if (selectedCons !== 'Capricon') {
         selectedCons = 'Capricon'
@@ -218,6 +218,7 @@ document.getElementById("btn_Capricon").onclick = function (event) {
     camera.position.set(-15, 0, -10);
     lineCapricorn();
 };
+
 document.getElementById("btn_Aquarius").onclick = function (event) {
     if (selectedCons !== 'Aquarius') {
         selectedCons = 'Aquarius'
@@ -228,6 +229,7 @@ document.getElementById("btn_Aquarius").onclick = function (event) {
     camera.position.set(-15, -5, 0);
     lineAquarius();
 };
+
 document.getElementById("btn_Pisces").onclick = function (event) {
     if (selectedCons !== 'Pisces') {
         selectedCons = 'Pisces'
@@ -239,6 +241,7 @@ document.getElementById("btn_Pisces").onclick = function (event) {
     linePisces();
 };
 
+// Find zodiac with birthday
 document.getElementById("prompt").onclick = function (event) {
     var month = prompt("Enter your month: ");
     var date = prompt("Enter your date: ");
@@ -433,13 +436,14 @@ function checkZodiac(day, month) {
     return astro_sign;
 }
 
-// Speed control buttons
+// Camera reset
 document.getElementById("btn_cameraReset").onclick = function (event) {
     camera.position.set(300, 300, 500);
     var stars20 = createStars(480, 100);
     scene.add(stars20);
 };
 
+// Animate
 const animate = function () {
     requestAnimationFrame(animate);
     // Use trackball
@@ -448,6 +452,7 @@ const animate = function () {
 };
 animate();
 
+// Create Planet
 function createPlanet(scene, mesh, group, x, y, z, scale) {
     mesh.position.set(x, y, z);
     mesh.scale.setScalar(scale);
@@ -455,6 +460,7 @@ function createPlanet(scene, mesh, group, x, y, z, scale) {
     scene.add(group);
 }
 
+// Lights
 function createSpotlights(scene) {
     var color = 'white';
     var intensity = 3;
@@ -498,7 +504,7 @@ function createStars(radius, segments) {
     );
 }
 
-
+// Illustration
 function AquariusBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -518,6 +524,7 @@ export function AriesBackground(radius, segments) {
         })
     );
 }
+
 function CancerBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -527,6 +534,7 @@ function CancerBackground(radius, segments) {
         })
     );
 }
+
 function CapricornBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -536,6 +544,7 @@ function CapricornBackground(radius, segments) {
         })
     );
 }
+
 function GeminiBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -545,6 +554,7 @@ function GeminiBackground(radius, segments) {
         })
     );
 }
+
 function LeoBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -554,6 +564,7 @@ function LeoBackground(radius, segments) {
         })
     );
 }
+
 function LibraBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -563,6 +574,7 @@ function LibraBackground(radius, segments) {
         })
     );
 }
+
 function PiscesBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -572,6 +584,7 @@ function PiscesBackground(radius, segments) {
         })
     );
 }
+
 function SagittariusBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -581,6 +594,7 @@ function SagittariusBackground(radius, segments) {
         })
     );
 }
+
 function ScorpiusBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -590,6 +604,7 @@ function ScorpiusBackground(radius, segments) {
         })
     );
 }
+
 function TaurusBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
@@ -599,6 +614,7 @@ function TaurusBackground(radius, segments) {
         })
     );
 }
+
 function VirgoBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
