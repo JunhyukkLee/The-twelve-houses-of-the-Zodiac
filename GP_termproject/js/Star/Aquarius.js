@@ -1,4 +1,4 @@
-import { scene } from "../planet.js";
+import { scene } from "../main.js";
 
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 // Set Texture
@@ -115,7 +115,5 @@ export function Aquarius() {
     const light7_12 = new THREE.AmbientLight(0x404040); // soft white light
     scene.add(light7_12);
     light7_12.position.set(440, 85, 25);
-
-
 
 }

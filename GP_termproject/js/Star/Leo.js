@@ -1,4 +1,4 @@
-import { scene } from "../planet.js";
+import { scene } from "../main.js";
 
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 // Set Texture

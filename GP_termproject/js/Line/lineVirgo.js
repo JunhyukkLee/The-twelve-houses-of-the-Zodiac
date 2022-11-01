@@ -1,4 +1,4 @@
-import { scene } from "../planet.js";
+import { scene } from "../main.js";
 
 let anistat1 = true;
 let anistat2 = true;
