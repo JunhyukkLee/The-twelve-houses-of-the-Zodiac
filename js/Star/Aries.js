@@ -13,27 +13,27 @@ export function Aries() {
     ARIES_1Mesh.position.set(165, 265, -325);
     ARIES_1Mesh.scale.setScalar(4);
     scene.add(ARIES_1Mesh);
-    const light5_1 = new THREE.AmbientLight(0x404040); // soft white light
-    scene.add(light5_1);
-    light5_1.position.set(165, 265, -325);
+    // const light5_1 = new THREE.AmbientLight(0x404040); // soft white light
+    // scene.add(light5_1);
+    // light5_1.position.set(165, 265, -325);
 
     ///ARIES_2
     const ARIES_2Mesh = new THREE.Mesh(geometry, Material_1);
     ARIES_2Mesh.position.set(265, 240, -270);
     ARIES_2Mesh.scale.setScalar(4);
     scene.add(ARIES_2Mesh);
-    const light5_2 = new THREE.AmbientLight(0x404040); // soft white light
-    scene.add(light5_2);
-    light5_2.position.set(265, 240, -270);
+    // const light5_2 = new THREE.AmbientLight(0x404040); // soft white light
+    // scene.add(light5_2);
+    // light5_2.position.set(265, 240, -270);
 
     ///ARIES_3
     const ARIES_3Mesh = new THREE.Mesh(geometry, Material_1);
     ARIES_3Mesh.position.set(310, 220, -240);
     ARIES_3Mesh.scale.setScalar(4);
     scene.add(ARIES_3Mesh);
-    const light5_3 = new THREE.AmbientLight(0x404040); // soft white light
-    scene.add(light5_3);
-    light5_3.position.set(310, 220, -240);
+    // const light5_3 = new THREE.AmbientLight(0x404040); // soft white light
+    // scene.add(light5_3);
+    // light5_3.position.set(310, 220, -240);
 
 
     ///ARIES_4
@@ -41,9 +41,9 @@ export function Aries() {
     ARIES_4Mesh.position.set(325, 185, -250);
     ARIES_4Mesh.scale.setScalar(4);
     scene.add(ARIES_4Mesh);
-    const light5_4 = new THREE.AmbientLight(0x404040); // soft white light
-    scene.add(light5_4);
-    light5_4.position.set(325, 185, -250);
+    // const light5_4 = new THREE.AmbientLight(0x404040); // soft white light
+    // scene.add(light5_4);
+    // light5_4.position.set(325, 185, -250);
 
 
 }
