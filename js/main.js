@@ -142,7 +142,7 @@ createSubLigt(240, 0, -240);
 createSpotlights(scene);
 
 // Close up taget
-var selectedCons = 0
+var selectedCons = 0;
 
 camera.position.set(0, 0, -10);
 document.getElementById("btn_Aries").onclick = function (event) {
