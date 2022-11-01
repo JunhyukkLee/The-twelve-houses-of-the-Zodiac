@@ -144,116 +144,128 @@ createSpotlights(scene);
 // Close up taget
 var selectedCons = 0;
 
-camera.position.set(300, 300, 500);
+camera.position.set(0, 0, -10);
 document.getElementById("btn_Aries").onclick = function (event) {
     if (selectedCons !== 'Aries') {
             selectedCons = 'Aries'
             init_position();
+            var stars1= AriesBackground(480, 100)
+            scene.add(stars1);
     }
     controls.reset();
     controls.zoomCamera(100);
     camera.position.set(-20, -20, 20);
-    AriesBackground(480, 100);
 };
 document.getElementById("btn_Taurus").onclick = function (event) {
     if (selectedCons !== 'Taurus') {
             selectedCons = 'Taurus'
             init_position();
+            var stars2= TaurusBackground(480, 100)
+            scene.add(stars2);
     }
     controls.reset();
     camera.position.set(-10, -30, 55);
-    TaurusBackground(480, 100);
 };
 document.getElementById("btn_Gemini").onclick = function (event) {
     if (selectedCons !== 'Gemini') {
             selectedCons = 'Gemini'
             init_position();
+            var stars3= GeminiBackground(480, 100)
+            scene.add(stars3);
     }
     controls.reset();
     camera.position.set(5, -5, 20);
-    GeminiBackground(480, 100);
 };
 document.getElementById("btn_Cancer").onclick = function (event) {
     if (selectedCons !== 'Cancer') {
             selectedCons = 'Cancer'
             init_position();
+            var stars4= CancerBackground(480, 100)
+            scene.add(stars4);
     }
     controls.reset();
     camera.position.set(70, 7, 70);
     controls.zoomCamera();
-    CancerBackground(480, 100);
 };
 document.getElementById("btn_Leo").onclick = function (event) {
     if (selectedCons !== 'Leo') {
             selectedCons = 'Leo'
             init_position();
+            var stars5= LeoBackground(480, 100)
+            scene.add(stars5);
     }
     controls.reset();
     camera.position.set(50, 10, 10);
-    LeoBackground(480, 100);
 };
 document.getElementById("btn_Virgo").onclick = function (event) {
     if (selectedCons !== 'Virgo') {
             selectedCons = 'Virgo'
             init_position();
+            var stars6= VirgoBackground(480, 100)
+            scene.add(stars6);
     }
     controls.reset();
     camera.position.set(15, -3, -5);
-    VirgoBackground(480, 100);
 };
 document.getElementById("btn_Libra").onclick = function (event) {
     if (selectedCons !== 'Libra') {
             selectedCons = 'Libra'
             init_position();
+            var stars7= LibraBackground(480, 100)
+            scene.add(stars7);
     }
     controls.reset();
     camera.position.set(5, 0, -5);
-    LibraBackground(480, 100);
 };
 document.getElementById("btn_Scorpio").onclick = function (event) {
     if (selectedCons !== 'Scorpio') {
             selectedCons = 'Scorpio'
             init_position();
+            var stars8= ScorpiusBackground(480, 100)
+            scene.add(stars8);
     }
     controls.reset();
     camera.position.set(1, 3, -10);
-    ScorpioBackground(480, 100);
 };
 document.getElementById("btn_Sagittarius").onclick = function (event) {
     if (selectedCons !== 'Sagittarius') {
             selectedCons = 'Sagittarius'
             init_position();
+            var stars9= SagittariusBackground(480, 100)
+            scene.add(stars9);
     }
     controls.reset();
     camera.position.set(-5, 0, -10);
-    SagittariusBackground(480, 100);
 };
 document.getElementById("btn_Capricon").onclick = function (event) {
     if (selectedCons !== 'Capricon') {
             selectedCons = 'Capricon'
             init_position();
+            var stars10= CapricornBackground(480, 100)
+            scene.add(stars10);
     }
     controls.reset();
     camera.position.set(-15, 0, -10);
-    CapriconBackground(480, 100);
 };
 document.getElementById("btn_Aquarius").onclick = function (event) {
     if (selectedCons !== 'Aquarius') {
             selectedCons = 'Aquarius'
             init_position();
+            var stars11= AquariusBackground(480, 100)
+            scene.add(stars11);
     }
     controls.reset();
     camera.position.set(-15, -5, 0);
-    AquariusBackground(480, 100);
 };
 document.getElementById("btn_Pisces").onclick = function (event) {
     if (selectedCons !== 'Pisces') {
             selectedCons = 'Pisces'
             init_position();
+            var stars12= PiscesBackground(480, 100)
+            scene.add(stars12);
     }
     controls.reset();
     camera.position.set(-50, -30, 20);
-    PiscesBackground(480, 100);
 };
 
 
@@ -277,9 +289,9 @@ document.getElementById("btn_cameraReset").onclick = function (event) {
 };
 
 
-
 const animate = function () {
     requestAnimationFrame( animate );
+
     // Use trackball
     controls.update();
 
@@ -346,7 +358,7 @@ function createStars(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
         new THREE.MeshBasicMaterial({
-            map:  THREE.ImageUtils.loadTexture('images/back.png'),
+            map:  THREE.ImageUtils.loadTexture('images/galaxy.png'),
             side: THREE.BackSide
         })
     );
