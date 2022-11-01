@@ -276,8 +276,6 @@ document.getElementById("btn_cameraReset").onclick = function (event) {
     camera.position.set(300, 300, 500);
 };
 
-
-
 const animate = function () {
     requestAnimationFrame( animate );
     // Use trackball
