@@ -3,7 +3,7 @@ import { scene } from "../main.js";
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 // Set Texture
 const loader = new THREE.TextureLoader();
-const star1Texture = loader.load("./images/zodiacccc.png")
+const star1Texture = loader.load("./images/zodia.png")
 export function Leo() {
 
     const Material_1 = new THREE.MeshStandardMaterial({ map: star1Texture});
