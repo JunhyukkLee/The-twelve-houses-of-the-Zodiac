@@ -492,7 +492,7 @@ function createStars(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
         new THREE.MeshBasicMaterial({
-            map: THREE.ImageUtils.loadTexture('images/galaxy.png'),
+            map: THREE.ImageUtils.loadTexture('images/back.jpg'),
             side: THREE.BackSide
         })
     );
