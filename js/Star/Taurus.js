@@ -110,26 +110,26 @@ const TAURUS_10Mesh = new THREE.Mesh(geometry, TAURUS_10Material);
 TAURUS_10Mesh.position.set(119,127, -416);
 TAURUS_10Mesh.scale.setScalar(4);
 scene.add(TAURUS_10Mesh);
-const light11 = new THREE.AmbientLight( 0x404040 ); // soft white light
-scene.add( light11 );
-light11.position.set(119,127, -416);
+// const light11 = new THREE.AmbientLight( 0x404040 ); // soft white light
+// scene.add( light11 );
+// light11.position.set(119,127, -416);
 
 ////TAURUS_11
 const TAURUS_11Mesh = new THREE.Mesh(geometry, TAURUS_11Material);
 TAURUS_11Mesh.position.set(170,107, -404);
 TAURUS_11Mesh.scale.setScalar(4);
 scene.add(TAURUS_11Mesh);
-const light12 = new THREE.AmbientLight( 0x404040 ); // soft white light
-scene.add( light12 );
-light12.position.set(170,107, -404);
+// const light12 = new THREE.AmbientLight( 0x404040 ); // soft white light
+// scene.add( light12 );
+// light12.position.set(170,107, -404);
 
 ////TAURUS_12
 const TAURUS_12Mesh = new THREE.Mesh(geometry, TAURUS_12Material);
 TAURUS_12Mesh.position.set(175,100, -404);
 TAURUS_12Mesh.scale.setScalar(4);
 scene.add(TAURUS_12Mesh);
-const light13 = new THREE.AmbientLight( 0x404040 ); // soft white light
-scene.add( light13 );
-light13.position.set(175,100, -404);
+// const light13 = new THREE.AmbientLight( 0x404040 ); // soft white light
+// scene.add( light13 );
+// light13.position.set(175,100, -404);
 
 }
