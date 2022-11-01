@@ -165,24 +165,24 @@ createSpotlights(scene);
 // Close up taget
 var closeUpPlanet = 0
 
-document.getElementById("SunBtn").onclick = function (event) {
-    camera.position.set(0, 30, 50);
-    closeUpPlanet = 'sun'
-    init_position();
+// document.getElementById("SunBtn").onclick = function (event) {
+//     camera.position.set(0, 30, 50);
+//     closeUpPlanet = 'sun'
+//     init_position();
 
-};
-document.getElementById("EarthBtn").onclick = function (event) {
+// };
+// document.getElementById("EarthBtn").onclick = function (event) {
 
-    if (closeUpPlanet !== 'earth')
-    {
-        closeUpPlanet = 'earth';
-        init_position();
+//     if (closeUpPlanet !== 'earth')
+//     {
+//         closeUpPlanet = 'earth';
+//         init_position();
 
 
-    }
-    camera.position.set(0, 30, 50);
-    controls.update();
-};
+//     }
+//     camera.position.set(0, 30, 50);
+//     controls.update();
+// };
 
 
 // Speed control buttons
