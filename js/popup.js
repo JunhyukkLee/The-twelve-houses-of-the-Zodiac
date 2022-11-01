@@ -1,4 +1,7 @@
 import { camera } from "../main.js";
+import { contorls } from "../main.js";
+
+document.write('<script src="../main.js"></script>');
 
 document.getElementById("prompt").onclick = function (event) {
     var month = prompt("Enter your month: ");
