@@ -46,12 +46,9 @@ const moonTexture = loader.load("./images/moon.jpg");
 
 // Set Materials
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
-
 const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
 
-//
 // Set Mesh
-//
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 
 Taurus();
@@ -299,7 +296,7 @@ document.getElementById("prompt").onclick = function (event) {
     if (zod == 'Libra') {
         var stars7 = LibraBackground(480, 100)
         scene.add(stars7);
-        
+
         controls.reset();
         camera.position.set(5, 0, -5);
     }
@@ -442,6 +439,14 @@ document.getElementById("btn_cameraReset").onclick = function (event) {
     var stars20 = createStars(480, 100);
     scene.add(stars20);
 };
+
+window.addEventListener('resize', onWindowResize, false);
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
 
 // Animate
 const animate = function () {
