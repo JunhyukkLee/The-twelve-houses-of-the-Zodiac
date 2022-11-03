@@ -1,4 +1,4 @@
-import { scene } from "../main.js";
+import {camera, renderer, scene} from "../main.js";
 
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 // Set Texture
@@ -6,7 +6,7 @@ const loader = new THREE.TextureLoader();
 const star1Texture = loader.load("./images/zodia.png")
 export function Scorpius() {
 
-    const Material_1 = new THREE.MeshStandardMaterial({ map: star1Texture });
+    const Material_1 = new THREE.MeshPhongMaterial({ map: star1Texture });
 
    ///SCORPIUS_1
 const SCORPIUS_1Mesh = new THREE.Mesh(geometry, Material_1);
@@ -142,6 +142,21 @@ scene.add(SCORPIUS_15Mesh);
 // const light10_15 = new THREE.AmbientLight( 0x404040 ); // soft white light
 // scene.add( light10_15 );
 // light10_15.position.set(-180,-70,405);
+
+    const light_star10 = new THREE.PointLight(0xffffff,-1); // soft white light
+    light_star10.position.set(300, 300, 500);
+    scene.add(light_star10);
+    let time = new Date() /1000
+
+    function animate() {
+        let curTime;
+        curTime = new Date()/1000
+        requestAnimationFrame( animate );
+        light_star10.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
+
+        renderer.render( scene, camera );
+    }
+    animate()
 
 
 }

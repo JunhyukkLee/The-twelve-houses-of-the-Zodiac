@@ -1,4 +1,4 @@
-import { scene } from "../main.js";
+import {camera, renderer, scene} from "../main.js";
 
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 // Set Texture
@@ -6,7 +6,7 @@ const loader = new THREE.TextureLoader();
 const star1Texture = loader.load("./images/zodia.png")
 export function Cancer() {
 
-    const Material_1 = new THREE.MeshStandardMaterial({ map: star1Texture });
+    const Material_1 = new THREE.MeshPhongMaterial({ map: star1Texture });
 
     //CANCER_1
     const CANCER_1Mesh = new THREE.Mesh(geometry, Material_1);
@@ -15,8 +15,8 @@ export function Cancer() {
     scene.add(CANCER_1Mesh);
     // const light2_1 = new THREE.AmbientLight(0x404040); // soft white light
     // scene.add(light2_1);
-    // light2_1.position.set(-40, 125, -432);
-    //CANCER_2
+    // light2_1.position.set(-260, 35, -365);
+    // CANCER_2
     const CANCER_2Mesh = new THREE.Mesh(geometry, Material_1);
     CANCER_2Mesh.position.set(-325, 65, -305);
     CANCER_2Mesh.scale.setScalar(4);
@@ -52,5 +52,19 @@ export function Cancer() {
     // scene.add(light2_5);
     // light2_5.position.set(-40, 125, -432);
 
+    const light_star3 = new THREE.PointLight(0xffffff,-1); // soft white light
+    light_star3.position.set(300, 300, 500);
+    scene.add(light_star3);
+    let time = new Date() /1000
+
+    function animate() {
+        let curTime;
+        curTime = new Date()/1000
+        requestAnimationFrame( animate );
+        light_star3.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
+
+        renderer.render( scene, camera );
+    }
+    animate()
 
 }

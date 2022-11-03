@@ -1,4 +1,4 @@
-import { scene } from "../main.js";
+import {camera, renderer, scene} from "../main.js";
 
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 // Set Texture
@@ -6,7 +6,7 @@ const loader = new THREE.TextureLoader();
 const star1Texture = loader.load("./images/zodia.png")
 export function Aquarius() {
 
-    const Material_1 = new THREE.MeshStandardMaterial({ map: star1Texture });
+    const Material_1 = new THREE.MeshPhongMaterial({ map: star1Texture });
 
     ///AQUARIUS_1
     const AQUARIUS_1Mesh = new THREE.Mesh(geometry, Material_1);
@@ -116,4 +116,20 @@ export function Aquarius() {
     // scene.add(light7_12);
     // light7_12.position.set(440, 85, 25);
 
+
+
+    const light_star = new THREE.PointLight(0xffffff,-1); // soft white light
+    light_star.position.set(300, 300, 500);
+    scene.add(light_star);
+    let time = new Date() /1000
+
+    function animate() {
+        let curTime;
+        curTime = new Date()/1000
+        requestAnimationFrame( animate );
+        light_star.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
+
+        renderer.render( scene, camera );
+    }
+    animate()
 }

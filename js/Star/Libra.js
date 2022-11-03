@@ -1,4 +1,4 @@
-import { scene } from "../main.js";
+import {camera, renderer, scene} from "../main.js";
 
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 // Set Texture
@@ -6,7 +6,7 @@ const loader = new THREE.TextureLoader();
 const star1Texture = loader.load("./images/zodia.png")
 export function Libra() {
 
-    const Material_1 = new THREE.MeshStandardMaterial({ map: star1Texture });
+    const Material_1 = new THREE.MeshPhongMaterial({ map: star1Texture });
 
     //LIBRA_1
     const LIBRA_1Mesh = new THREE.Mesh(geometry, Material_1);
@@ -82,4 +82,18 @@ export function Libra() {
     // scene.add(light12_8);
     // light12_8.position.set(-40, 125, -432);
 
+    const light_star7 = new THREE.PointLight(0xffffff,-1); // soft white light
+    light_star7.position.set(300, 300, 500);
+    scene.add(light_star7);
+    let time = new Date() /1000
+
+    function animate() {
+        let curTime;
+        curTime = new Date()/1000
+        requestAnimationFrame( animate );
+        light_star7.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
+
+        renderer.render( scene, camera );
+    }
+    animate()
 }
