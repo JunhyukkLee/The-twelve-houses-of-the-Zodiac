@@ -28,14 +28,14 @@ var width = window.innerWidth,
     height = window.innerHeight;
 let default_value = 0;
 var cameraMove = false;
+
 // Create scene
 export const scene = new THREE.Scene();
 const loader = new THREE.TextureLoader();
 export var camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
 
-const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
-
 var earth_rt_speed = 0.0005;
+
 // TrackballControls for view control
 export var controls = new THREE.TrackballControls(camera);
 controls.update();
@@ -47,15 +47,17 @@ document.body.appendChild(renderer.domElement);
 
 // Planet
 const earthTexture = loader.load("./images/earth.jpg");
-const moonTexture = loader.load("./images/moon.jpg");
+const sunTexture = loader.load("./images/sun.jpg"); // 추가
+//const moonTexture = loader.load("./images/moon.jpg");
 
 // Set Materials
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
-
-const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
+const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture }); // 추가
+//const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
 
 // Set Mesh
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
+const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff }); //추가
 
 Taurus();
 Leo();
@@ -72,7 +74,21 @@ Scorpius();
 
 renderer.render(scene, camera);
 
-// Earth & Moon
+// Sun
+// 추가
+const sunMesh = new THREE.Mesh( geometry, sunMaterial );
+sunMesh.position.set(-480, 0, 0);
+sunMesh.scale.setScalar(20); // 21.8
+scene.add(sunMesh);
+
+var sunTorusGeometry = new THREE.TorusGeometry(480, 0.03,50,100);
+const sunTorus = new THREE.Mesh( sunTorusGeometry, torusMaterial );
+sunTorus.rotation.x = 0.5*Math.PI;
+sunTorus.position.x=0;
+sunTorus.add(sunMesh);
+scene.add(sunTorus);
+
+// Earth
 const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 earthMesh.rotation.x = -0.37 * Math.PI; // 0.37
@@ -85,10 +101,10 @@ earthTorus.position.x = 0;
 earthTorus.add(earthMesh);
 scene.add(earthTorus);
 
-const moonGroup = new THREE.Group();
-const moonMesh = new THREE.Mesh(geometry, moonMaterial);
-moonMesh.rotation.x = -0.446 * Math.P;
-createPlanet(scene, moonMesh, moonGroup, 10, 1.2);
+// const moonGroup = new THREE.Group();
+// const moonMesh = new THREE.Mesh(geometry, moonMaterial);
+// moonMesh.rotation.x = -0.446 * Math.P;
+// createPlanet(scene, moonMesh, moonGroup, 10, 1.2);
 
 // Background
 var stars = createStars(480, 100);
@@ -573,8 +589,13 @@ const animate = function () {
     TWEEN.update();
     earthMesh.rotation.y += earth_rt_speed;
     earthTorus.rotation.z -= earth_rt_speed;
+    
+    sunMesh.rotation.y += earth_rt_speed * 4; //자전 추가
+    sunTorus.rotation.z -= earth_rt_speed ; //공전 추가
+
     renderer.render(scene, camera);
 };
+
 animate();
 
 function createPlanet(scene, mesh, group, x, y, z, scale) {
