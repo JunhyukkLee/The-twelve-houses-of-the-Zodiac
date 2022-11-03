@@ -23,13 +23,12 @@ import { lineCapricorn } from "./Line/lineCapricorn.js";
 import { lineSagittarius } from "./Line/lineSagittarius.js";
 import { lineScorpius } from "./Line/lineScorpius.js";
 
-// 바보 똥꾸멍
-
 // Set width, height size
 var width = window.innerWidth,
     height = window.innerHeight;
 let default_value = 0;
 var cameraMove = false;
+
 // Create scene
 export const scene = new THREE.Scene();
 const loader = new THREE.TextureLoader();
@@ -38,6 +37,7 @@ export var camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
 const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
 var earth_rt_speed = 0.0005;
+
 // TrackballControls for view control
 export var controls = new THREE.TrackballControls(camera);
 controls.update();
@@ -49,12 +49,12 @@ document.body.appendChild(renderer.domElement);
 
 // Planet
 const earthTexture = loader.load("./images/earth.jpg");
-const moonTexture = loader.load("./images/moon.jpg");
+//const moonTexture = loader.load("./images/moon.jpg");
 
 // Set Materials
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
 
-const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
+//const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
 
 // Set Mesh
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
@@ -87,10 +87,10 @@ earthTorus.position.x = 0;
 earthTorus.add(earthMesh);
 scene.add(earthTorus);
 
-const moonGroup = new THREE.Group();
-const moonMesh = new THREE.Mesh(geometry, moonMaterial);
-moonMesh.rotation.x = -0.446 * Math.P;
-createPlanet(scene, moonMesh, moonGroup, 10, 1.2);
+// const moonGroup = new THREE.Group();
+// const moonMesh = new THREE.Mesh(geometry, moonMaterial);
+// moonMesh.rotation.x = -0.446 * Math.P;
+// createPlanet(scene, moonMesh, moonGroup, 10, 1.2);
 
 // Background
 var stars = createStars(480, 100);
