@@ -27,12 +27,14 @@ import { lineScorpius } from "./Line/lineScorpius.js";
 // Set width, height size
 var width = window.innerWidth,
     height = window.innerHeight;
-
+let default_value=0;
+var cameraMove=false;
 // Create scene
 export const scene = new THREE.Scene();
 const loader = new THREE.TextureLoader();
 export var camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
 
+var earth_rt_speed = 0.0005;
 // TrackballControls for view control
 export var controls = new THREE.TrackballControls(camera);
 
@@ -52,6 +54,7 @@ const cloudTexture = loader.load("./images/clouds.png");
 
 // Set Materials
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
+const torusMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff } );
 
 const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
 const cloudMaterial = new THREE.MeshStandardMaterial({ map: cloudTexture, transparent: true });
@@ -80,11 +83,19 @@ renderer.render(scene, camera);
 const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 earthMesh.rotation.x = -0.37 * Math.PI; // 0.37
-createPlanet(scene, earthMesh, earthGroup, -100, -90, -20, 20);
+createPlanet(scene, earthMesh, earthGroup, 75, 0, 0, 6);
 
 const earthCloudMesh = new THREE.Mesh(geometry, cloudMaterial);
 createPlanet(scene, earthCloudMesh, earthGroup, 75, 6.01);
 earthCloudMesh.rotation.y = 6;
+
+var earthTorusGeometry = new THREE.TorusGeometry(75, 0.000003,50,100);
+const earthTorus = new THREE.Mesh( earthTorusGeometry, torusMaterial );
+earthTorus.rotation.x = 0.5*Math.PI;
+earthTorus.position.x=0;
+earthTorus.add(earthMesh);
+earthTorus.add(earthCloudMesh);
+scene.add(earthTorus);
 
 const moonGroup = new THREE.Group();
 const moonMesh = new THREE.Mesh(geometry, moonMaterial);
@@ -116,13 +127,17 @@ createSpotlights(scene);
 // Close up taget
 var selectedCons = 0;
 
-camera.position.set(300, 300, 500);
+camera.position.set(75,0,0);
 
 document.getElementById("btn_Aries").onclick = function (event) {
     if (selectedCons !== 'Aries') {
         selectedCons = 'Aries'
         var stars1 = AriesBackground(480, 100)
         scene.add(stars1);
+    }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
     }
     controls.reset();
     camera.position.set(-20, -20, 20);
@@ -134,6 +149,10 @@ document.getElementById("btn_Taurus").onclick = function (event) {
         var stars2 = TaurusBackground(480, 100)
         scene.add(stars2);
     }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
+    }
     controls.reset();
     camera.position.set(-10, -30, 55);
     lineTaurus();
@@ -143,6 +162,10 @@ document.getElementById("btn_Gemini").onclick = function (event) {
         selectedCons = 'Gemini'
         var stars3 = GeminiBackground(480, 100)
         scene.add(stars3);
+    }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
     }
     controls.reset();
     camera.position.set(5, -5, 20);
@@ -154,6 +177,10 @@ document.getElementById("btn_Cancer").onclick = function (event) {
         var stars4 = CancerBackground(480, 100)
         scene.add(stars4);
     }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
+    }
     controls.reset();
     camera.position.set(70, 7, 70);
     lineCancer();
@@ -163,6 +190,10 @@ document.getElementById("btn_Leo").onclick = function (event) {
         selectedCons = 'Leo'
         var stars5 = LeoBackground(480, 100)
         scene.add(stars5);
+    }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
     }
     controls.reset();
     camera.position.set(50, 10, 10);
@@ -174,6 +205,10 @@ document.getElementById("btn_Virgo").onclick = function (event) {
         var stars6 = VirgoBackground(480, 100)
         scene.add(stars6);
     }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
+    }
     controls.reset();
     camera.position.set(15, -3, -5);
     lineVirgo();
@@ -183,6 +218,10 @@ document.getElementById("btn_Libra").onclick = function (event) {
         selectedCons = 'Libra'
         var stars7 = LibraBackground(480, 100)
         scene.add(stars7);
+    }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
     }
     controls.reset();
     camera.position.set(5, 0, -5);
@@ -194,6 +233,10 @@ document.getElementById("btn_Scorpio").onclick = function (event) {
         var stars8 = ScorpiusBackground(480, 100)
         scene.add(stars8);
     }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
+    }
     controls.reset();
     camera.position.set(1, 3, -10);
     lineScorpius();
@@ -203,6 +246,10 @@ document.getElementById("btn_Sagittarius").onclick = function (event) {
         selectedCons = 'Sagittarius'
         var stars9 = SagittariusBackground(480, 100)
         scene.add(stars9);
+    }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
     }
     controls.reset();
     camera.position.set(-5, 0, -10);
@@ -214,6 +261,10 @@ document.getElementById("btn_Capricon").onclick = function (event) {
         var stars10 = CapricornBackground(480, 100)
         scene.add(stars10);
     }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
+    }
     controls.reset();
     camera.position.set(-15, 0, -10);
     lineCapricorn();
@@ -223,6 +274,10 @@ document.getElementById("btn_Aquarius").onclick = function (event) {
         selectedCons = 'Aquarius'
         var stars11 = AquariusBackground(480, 100)
         scene.add(stars11);
+    }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
     }
     controls.reset();
     camera.position.set(-15, -5, 0);
@@ -234,6 +289,10 @@ document.getElementById("btn_Pisces").onclick = function (event) {
         var stars12 = PiscesBackground(480, 100)
         scene.add(stars12);
     }
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
+    }
     controls.reset();
     camera.position.set(-50, -30, 20);
     linePisces();
@@ -244,7 +303,10 @@ document.getElementById("prompt").onclick = function (event) {
     var date = prompt("Enter your date: ");
     var zod = checkZodiac(date, month);
     alert("Your zodiac is: " + zod + "!");
-
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
+    }
     if (zod == 'Aries') {
         var stars1 = AriesBackground(480, 100)
         scene.add(stars1);
@@ -433,20 +495,42 @@ function checkZodiac(day, month) {
     return astro_sign;
 }
 
-// Speed control buttons
+
 document.getElementById("btn_cameraReset").onclick = function (event) {
+    if(cameraMove==true){
+        cameraMove=false;
+        earthTorus.remove(camera);
+    }
     camera.position.set(300, 300, 500);
     var stars20 = createStars(480, 100);
     scene.add(stars20);
 };
 
+document.getElementById("btn_binggle").onclick = function (event) {
+    camera.position.set(75,0,0);
+    if(cameraMove==false){
+        cameraMove=true;
+        earthTorus.add(camera);
+    }
+    animateCa();
+};
+
+
+const animateCa=function(){
+    requestAnimationFrame(animateCa);
+    camera.rotation.y+=earth_rt_speed;
+}
+
 const animate = function () {
     requestAnimationFrame(animate);
     // Use trackball
     controls.update();
+    earthMesh.rotation.y += earth_rt_speed;
+    earthTorus.rotation.z -= earth_rt_speed;
     renderer.render(scene, camera);
 };
 animate();
+
 
 function createPlanet(scene, mesh, group, x, y, z, scale) {
     mesh.position.set(x, y, z);
