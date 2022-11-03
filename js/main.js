@@ -33,6 +33,8 @@ export const scene = new THREE.Scene();
 const loader = new THREE.TextureLoader();
 export var camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
 
+const torusMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+
 var earth_rt_speed = 0.0005;
 // TrackballControls for view control
 export var controls = new THREE.TrackballControls(camera);
@@ -41,6 +43,8 @@ controls.update();
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
+
+
 
 // Planet
 const earthTexture = loader.load("./images/earth.jpg");
@@ -75,13 +79,16 @@ const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 earthMesh.rotation.x = -0.37 * Math.PI; // 0.37
 createPlanet(scene, earthMesh, earthGroup, 75, 0, 0, 6);
 
-const earthCloudMesh = new THREE.Mesh(geometry, cloudMaterial);
-createPlanet(scene, earthCloudMesh, earthGroup, 75, 6.01);
-earthCloudMesh.rotation.y = 6;
+var earthTorusGeometry = new THREE.TorusGeometry(75, 0.00003,50,100);
+const earthTorus = new THREE.Mesh( earthTorusGeometry, torusMaterial );
+earthTorus.rotation.x = 0.5*Math.PI;
+earthTorus.position.x=0;
+earthTorus.add(earthMesh);
+scene.add(earthTorus);
 
 const moonGroup = new THREE.Group();
 const moonMesh = new THREE.Mesh(geometry, moonMaterial);
-moonMesh.rotation.x = -0.446 * Math.PI;
+moonMesh.rotation.x = -0.446 * Math.P;
 createPlanet(scene, moonMesh, moonGroup, 10, 1.2);
 
 // Background
@@ -500,6 +507,15 @@ document.getElementById("btn_cameraReset").onclick = function (event) {
     var stars20 = createStars(480, 100);
     scene.add(stars20);
 };
+
+document.getElementById("btn_binggle").onclick = function (event) {
+    if(cameraMove==false){
+        cameraMove=true;
+        camera.position.set(75,0,0);
+        earthTorus.add(camera);
+    }
+};
+
 
 const animate = function () {
     requestAnimationFrame(animate);
