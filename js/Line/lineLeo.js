@@ -183,9 +183,9 @@ function lineT96(){
         console.log(xdt96,ydt96,zdt96);
         anistat8 = false;
     }
-    xdt96 = xdt96 + 1.4;
-    ydt96 = ydt96 + 1.9;
-    zdt96 = zdt96 - 7.7;
+    xdt96 = xdt96 + 0.28;
+    ydt96 = ydt96 + 0.38;
+    zdt96 = zdt96 - 1.54;
     l96.push(new THREE.Vector3(-433, -122, -22));
     l96.push(new THREE.Vector3(xdt96, ydt96, zdt96));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l96);
