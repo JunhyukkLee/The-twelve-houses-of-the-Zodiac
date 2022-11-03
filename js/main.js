@@ -47,17 +47,15 @@ document.body.appendChild(renderer.domElement);
 
 // Planet
 const earthTexture = loader.load("./images/earth.jpg");
-const sunTexture = loader.load("./images/sun.jpg"); // 추가
-//const moonTexture = loader.load("./images/moon.jpg");
+const sunTexture = loader.load("./images/sun.jpg"); 
 
 // Set Materials
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
-const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture }); // 추가
-//const moonMaterial = new THREE.MeshStandardMaterial({ map: moonTexture });
+const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture }); 
 
 // Set Mesh
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
-const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff }); //추가
+const torusMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
 
 Taurus();
 Leo();
@@ -75,10 +73,9 @@ Scorpius();
 renderer.render(scene, camera);
 
 // Sun
-// 추가
 const sunMesh = new THREE.Mesh(geometry, sunMaterial);
 sunMesh.position.set(-480, 0, 0);
-sunMesh.scale.setScalar(20); // 21.8
+sunMesh.scale.setScalar(20);
 scene.add(sunMesh);
 
 var sunTorusGeometry = new THREE.TorusGeometry(480, 0.03, 50, 100);
@@ -100,11 +97,6 @@ earthTorus.rotation.x = 0.5 * Math.PI;
 earthTorus.position.x = 0;
 earthTorus.add(earthMesh);
 scene.add(earthTorus);
-
-// const moonGroup = new THREE.Group();
-// const moonMesh = new THREE.Mesh(geometry, moonMaterial);
-// moonMesh.rotation.x = -0.446 * Math.P;
-// createPlanet(scene, moonMesh, moonGroup, 10, 1.2);
 
 // Background
 var stars = createStars(480, 100);
@@ -591,15 +583,17 @@ function onWindowResize() {
 window.addEventListener('resize', onWindowResize);
 
 const animate = function () {
+    
     requestAnimationFrame(animate);
+
     // Use trackball
     controls.update();
     TWEEN.update();
-    earthMesh.rotation.y += earth_rt_speed;
-    earthTorus.rotation.z -= earth_rt_speed;
 
-    sunMesh.rotation.y += earth_rt_speed * 4; //자전 추가
-    sunTorus.rotation.z -= earth_rt_speed; //공전 추가
+    earthMesh.rotation.y += earth_rt_speed; // earth rotate
+    earthTorus.rotation.z -= earth_rt_speed; // earth orbit
+    sunMesh.rotation.y += earth_rt_speed * 4; // sun rotate
+    sunTorus.rotation.z -= earth_rt_speed; // sun orbit
 
     renderer.render(scene, camera);
 };
