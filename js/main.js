@@ -36,6 +36,7 @@ export var camera = new THREE.PerspectiveCamera(90, width / height, 1, 10000);
 export var controls = new THREE.TrackballControls(camera);
 controls.update();
 
+// WebGL Renderer
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
