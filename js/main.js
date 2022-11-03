@@ -545,8 +545,8 @@ function interval() {
     currPosition = currPosition === 0 ? 1 : 0;
     tweenCamera(camera, positions[currPosition], 3000);
 }
-interval();
-setInterval(interval, 4000);
+// interval();
+// setInterval(interval, 4000);
 
 function tweenCamera(camera, position, duration) {
     new TWEEN.Tween(camera.position).to({
