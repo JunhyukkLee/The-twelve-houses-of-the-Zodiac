@@ -1,4 +1,4 @@
-import { scene } from "../main.js";
+import {camera, renderer, scene} from "../main.js";
 
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 // Set Texture
@@ -6,7 +6,7 @@ const loader = new THREE.TextureLoader();
 const star1Texture = loader.load("./images/zodia.png")
 export function Leo() {
 
-    const Material_1 = new THREE.MeshStandardMaterial({ map: star1Texture});
+    const Material_1 = new THREE.MeshPhongMaterial({ map: star1Texture});
 
     //LEO_1
     const LEO_1Mesh = new THREE.Mesh(geometry, Material_1);
@@ -92,4 +92,19 @@ export function Leo() {
     // const light1_9 = new THREE.AmbientLight(0x404040); // soft white light
     // scene.add(light1_9);
     // light1_9.position.set(-40, 125, -432);
+
+    const light_star6 = new THREE.PointLight(0xffffff,-1); // soft white light
+    light_star6.position.set(300, 300, 500);
+    scene.add(light_star6);
+    let time = new Date() /1000
+
+    function animate() {
+        let curTime;
+        curTime = new Date()/1000
+        requestAnimationFrame( animate );
+        light_star6.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
+
+        renderer.render( scene, camera );
+    }
+    animate()
 }
