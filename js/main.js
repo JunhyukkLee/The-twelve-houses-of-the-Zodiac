@@ -23,6 +23,8 @@ import { lineCapricorn } from "./Line/lineCapricorn.js";
 import { lineSagittarius } from "./Line/lineSagittarius.js";
 import { lineScorpius } from "./Line/lineScorpius.js";
 
+// 바보 똥꾸멍
+
 // Set width, height size
 var width = window.innerWidth,
     height = window.innerHeight;
