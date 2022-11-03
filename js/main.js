@@ -41,7 +41,7 @@ export var controls = new THREE.TrackballControls(camera);
 controls.update();
 
 // WebGL Renderer
-const renderer = new THREE.WebGLRenderer();
+export const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
