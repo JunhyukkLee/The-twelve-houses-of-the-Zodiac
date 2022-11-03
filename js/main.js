@@ -76,15 +76,15 @@ renderer.render(scene, camera);
 
 // Sun
 // 추가
-const sunMesh = new THREE.Mesh( geometry, sunMaterial );
+const sunMesh = new THREE.Mesh(geometry, sunMaterial);
 sunMesh.position.set(-480, 0, 0);
 sunMesh.scale.setScalar(20); // 21.8
 scene.add(sunMesh);
 
-var sunTorusGeometry = new THREE.TorusGeometry(480, 0.03,50,100);
-const sunTorus = new THREE.Mesh( sunTorusGeometry, torusMaterial );
-sunTorus.rotation.x = 0.5*Math.PI;
-sunTorus.position.x=0;
+var sunTorusGeometry = new THREE.TorusGeometry(480, 0.03, 50, 100);
+const sunTorus = new THREE.Mesh(sunTorusGeometry, torusMaterial);
+sunTorus.rotation.x = 0.5 * Math.PI;
+sunTorus.position.x = 0;
 sunTorus.add(sunMesh);
 scene.add(sunTorus);
 
@@ -582,6 +582,14 @@ function tweenCamera(camera, position, duration) {
         .start();
 }
 
+// reactvie
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
+window.addEventListener('resize', onWindowResize);
+
 const animate = function () {
     requestAnimationFrame(animate);
     // Use trackball
@@ -589,13 +597,12 @@ const animate = function () {
     TWEEN.update();
     earthMesh.rotation.y += earth_rt_speed;
     earthTorus.rotation.z -= earth_rt_speed;
-    
+
     sunMesh.rotation.y += earth_rt_speed * 4; //자전 추가
-    sunTorus.rotation.z -= earth_rt_speed ; //공전 추가
+    sunTorus.rotation.z -= earth_rt_speed; //공전 추가
 
     renderer.render(scene, camera);
 };
-
 animate();
 
 function createPlanet(scene, mesh, group, x, y, z, scale) {
