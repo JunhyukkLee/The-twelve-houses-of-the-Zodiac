@@ -316,6 +316,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(-20, -20, 20);
+        lineAries();
     }
 
     if (zod == 'Taurus') {
@@ -324,6 +325,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(-10, -30, 55);
+        lineTaurus();
     }
 
     if (zod == 'Gemini') {
@@ -332,6 +334,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(5, -5, 20);
+        lineJemini();
     }
 
     if (zod == 'Cancer') {
@@ -340,6 +343,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(70, 7, 70);
+        lineCancer();
     }
 
     if (zod == 'Leo') {
@@ -348,6 +352,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(50, 10, 10);
+        lineLeo();
     }
 
     if (zod == 'Virgo') {
@@ -356,6 +361,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(15, -3, -5);
+        lineVirgo();
     }
 
     if (zod == 'Libra') {
@@ -364,6 +370,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(5, 0, -5);
+        lineLibra();
     }
 
     if (zod == 'Scorpio') {
@@ -372,6 +379,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(1, 3, -10);
+        lineScorpius();
     }
 
     if (zod == 'Sagittarius') {
@@ -380,6 +388,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(-5, 0, -10);
+        lineSagittarius();
     }
 
     if (zod == 'Capricon') {
@@ -388,6 +397,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(-15, 0, -10);
+        lineCapricorn();
     }
 
     if (zod == 'Aquarius') {
@@ -396,6 +406,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(-15, -5, 0);
+        lineAquarius();
     }
 
     if (zod == 'Pisces') {
@@ -404,6 +415,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(-50, -30, 20);
+        linePisces();
     }
 };
 
