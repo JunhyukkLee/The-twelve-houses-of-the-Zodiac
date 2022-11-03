@@ -112,8 +112,12 @@ createSubLigt(240, 0, -240);
 // Illuminate the sun
 createSpotlights(scene);
 
-// Close up taget
+// Initilaize camera position
+camera.position.set(300, 300, 500);
+
+// Target position
 var selectedCons = 0;
+// let currPosition = 0;
 const positions = [
     [-20, -20, 20], //Aries
     [-10, -30, 55], //Taurus
@@ -127,14 +131,13 @@ const positions = [
     [-15, 0, -10], //Capricorn
     [-15, -5, 0], //Aquarius
     [-50, -30, 20], //Pisces
-  ];
-let currPosition = 0;
-camera.position.set(300, 300, 500);
+];
 
 // Move to zodiac when button clicked
 document.getElementById("btn_Aries").onclick = function (event) {
     if (selectedCons !== 'Aries') {
         selectedCons = 'Aries'
+        // currPosition = positions[0];
         var stars1 = AriesBackground(480, 100)
         scene.add(stars1);
     }
@@ -142,8 +145,9 @@ document.getElementById("btn_Aries").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(-20, -20, 20);
+    // controls.reset();
+    // camera.position.set(-20, -20, 20);
+    tweenCamera(camera, positions[0], 3000);
     lineAries();
 };
 
@@ -157,8 +161,9 @@ document.getElementById("btn_Taurus").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(-10, -30, 55);
+    // controls.reset();
+    // camera.position.set(-10, -30, 55);
+    tweenCamera(camera, positions[1], 3000);
     lineTaurus();
 };
 
@@ -172,8 +177,9 @@ document.getElementById("btn_Gemini").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(5, -5, 20);
+    // controls.reset();
+    // camera.position.set(5, -5, 20);
+    tweenCamera(camera, positions[2], 3000);
     lineJemini();
 };
 
@@ -187,8 +193,9 @@ document.getElementById("btn_Cancer").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(70, 7, 70);
+    // controls.reset();
+    // camera.position.set(70, 7, 70);
+    tweenCamera(camera, positions[3], 3000);
     lineCancer();
 };
 
@@ -202,8 +209,9 @@ document.getElementById("btn_Leo").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(50, 10, 10);
+    // controls.reset();
+    // camera.position.set(50, 10, 10);
+    tweenCamera(camera, positions[4], 3000);
     lineLeo();
 };
 
@@ -217,8 +225,9 @@ document.getElementById("btn_Virgo").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(15, -3, -5);
+    // controls.reset();
+    // camera.position.set(15, -3, -5);
+    tweenCamera(camera, positions[5], 3000);
     lineVirgo();
 };
 
@@ -232,8 +241,9 @@ document.getElementById("btn_Libra").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(5, 0, -5);
+    // controls.reset();
+    // camera.position.set(5, 0, -5);
+    tweenCamera(camera, positions[6], 3000);
     lineLibra();
 };
 
@@ -247,8 +257,9 @@ document.getElementById("btn_Scorpio").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(1, 3, -10);
+    // controls.reset();
+    // camera.position.set(1, 3, -10);
+    tweenCamera(camera, positions[7], 3000);
     lineScorpius();
 };
 
@@ -262,8 +273,9 @@ document.getElementById("btn_Sagittarius").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(-5, 0, -10);
+    // controls.reset();
+    // camera.position.set(-5, 0, -10);
+    tweenCamera(camera, positions[8], 3000);
     lineSagittarius();
 };
 
@@ -277,8 +289,9 @@ document.getElementById("btn_Capricon").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(-15, 0, -10);
+    // controls.reset();
+    // camera.position.set(-15, 0, -10);
+    tweenCamera(camera, positions[9], 3000);
     lineCapricorn();
 };
 
@@ -292,8 +305,9 @@ document.getElementById("btn_Aquarius").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(-15, -5, 0);
+    // controls.reset();
+    // camera.position.set(-15, -5, 0);
+    tweenCamera(camera, positions[10], 3000);
     lineAquarius();
 };
 
@@ -307,8 +321,9 @@ document.getElementById("btn_Pisces").onclick = function (event) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    controls.reset();
-    camera.position.set(-50, -30, 20);
+    // controls.reset();
+    // camera.position.set(-50, -30, 20);
+    tweenCamera(camera, positions[11], 3000);
     linePisces();
 };
 
@@ -540,13 +555,6 @@ document.getElementById("btn_binggle").onclick = function (event) {
         earthTorus.add(camera);
     }
 };
-
-function interval() {
-    currPosition = currPosition === 0 ? 1 : 0;
-    tweenCamera(camera, positions[currPosition], 3000);
-}
-// interval();
-// setInterval(interval, 4000);
 
 function tweenCamera(camera, position, duration) {
     new TWEEN.Tween(camera.position).to({
