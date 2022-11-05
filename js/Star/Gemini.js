@@ -4,7 +4,7 @@ const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments,
 // Set Texture
 const loader = new THREE.TextureLoader();
 const star1Texture = loader.load("./images/zodia.png")
-export function Jemini() {
+export function Gemini() {
 
     const Material_1 = new THREE.MeshPhongMaterial({ map: star1Texture });
 
