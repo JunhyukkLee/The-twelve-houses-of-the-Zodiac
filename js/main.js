@@ -1,13 +1,13 @@
 import { Taurus } from "./Star/Taurus.js";
 import { Leo } from "./Star/Leo.js";
 import { Cancer } from "./Star/Cancer.js";
-import { Jemini } from "./Star/Jemini.js";
+import { Gemini } from "./Star/Gemini.js";
 import { Virgo } from "./Star/Virgo.js";
 import { Libra } from "./Star/Libra.js";
 import { lineTaurus } from "./Line/lineTaurus.js";
 import { lineLeo } from "./Line/lineLeo.js";
 import { lineCancer } from "./Line/lineCancer.js";
-import { lineJemini } from "./Line/lineJemini.js";
+import { lineGemini } from "./Line/lineGemini.js";
 import { lineVirgo } from "./Line/lineVirgo.js";
 import { lineLibra } from "./Line/lineLibra.js";
 import { Aries } from "./Star/Aries.js";
@@ -47,11 +47,11 @@ document.body.appendChild(renderer.domElement);
 
 // Planet
 const earthTexture = loader.load("./images/earth.jpg");
-const sunTexture = loader.load("./images/sun.jpg"); 
+const sunTexture = loader.load("./images/sun.jpg");
 
 // Set Materials
 const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
-const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture }); 
+const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture });
 
 // Set Mesh
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
@@ -60,7 +60,7 @@ const torusMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
 Taurus();
 Leo();
 Cancer();
-Jemini();
+Gemini();
 Virgo();
 Libra();
 Aries();
@@ -188,7 +188,7 @@ document.getElementById("btn_Gemini").onclick = function (event) {
     // controls.reset();
     // camera.position.set(5, -5, 20);
     tweenCamera(camera, positions[2], 3000);
-    lineJemini();
+    lineGemini();
 };
 
 document.getElementById("btn_Cancer").onclick = function (event) {
@@ -369,7 +369,7 @@ document.getElementById("prompt").onclick = function (event) {
 
         controls.reset();
         camera.position.set(5, -5, 20);
-        lineJemini();
+        lineGemini();
     }
 
     if (zod == 'Cancer') {
@@ -583,7 +583,7 @@ function onWindowResize() {
 window.addEventListener('resize', onWindowResize);
 
 const animate = function () {
-    
+
     requestAnimationFrame(animate);
 
     // Use trackball

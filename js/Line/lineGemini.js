@@ -36,7 +36,7 @@ var xdt1113 = -88, ydt1113 = 75, zdt1113 = -435;
 var xdt213 = -68, ydt213 = 126, zdt213 = -428;
 
 
-export function lineJemini() {
+export function lineGemini() {
 
     lineT12();
     lineT23();
