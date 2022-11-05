@@ -126,7 +126,7 @@ function lineT54(){
     }
     if (xdt54 < -420) {
         cancelAnimationFrame(reqT54);
-        console.log(xdt54,ydt54,zdt54);
+   
         anistat4 = false;
     }
     xdt54 = xdt54 - 0.2;
@@ -205,7 +205,7 @@ function lineT610(){
     }
     if (xdt610 < -435) {
         cancelAnimationFrame(reqT610);
-        console.log(xdt610,ydt610,zdt610);
+       
         anistat8 = false;
     }
     xdt610 = xdt610 - 0.17;
@@ -246,7 +246,7 @@ function lineT87(){
     }
     if (xdt87 < -408) {
         cancelAnimationFrame(reqT87);
-        console.log(xdt87,ydt87,zdt87);
+    
         anistat10 = false;
     }
     xdt87 = xdt87 - 0.26;

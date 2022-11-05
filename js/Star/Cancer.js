@@ -52,19 +52,6 @@ export function Cancer() {
     // scene.add(light2_5);
     // light2_5.position.set(-40, 125, -432);
 
-    const light_star3 = new THREE.PointLight(0xffffff,-1); // soft white light
-    light_star3.position.set(300, 300, 500);
-    scene.add(light_star3);
-    let time = new Date() /1000
 
-    function animate() {
-        let curTime;
-        curTime = new Date()/1000
-        requestAnimationFrame( animate );
-        light_star3.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
-
-        renderer.render( scene, camera );
-    }
-    animate()
 
 }

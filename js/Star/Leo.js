@@ -93,18 +93,4 @@ export function Leo() {
     // scene.add(light1_9);
     // light1_9.position.set(-40, 125, -432);
 
-    const light_star6 = new THREE.PointLight(0xffffff,-1); // soft white light
-    light_star6.position.set(300, 300, 500);
-    scene.add(light_star6);
-    let time = new Date() /1000
-
-    function animate() {
-        let curTime;
-        curTime = new Date()/1000
-        requestAnimationFrame( animate );
-        light_star6.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
-
-        renderer.render( scene, camera );
-    }
-    animate()
 }

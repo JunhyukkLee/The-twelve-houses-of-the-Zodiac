@@ -38,8 +38,8 @@ export function Aries() {
 
 
 
-    const light_star2 = new THREE.PointLight(0xffffff,-1); // soft white light
-    light_star2.position.set(283 , 288 ,385);
+    const light_star2 = new THREE.AmbientLight(0xff0000,-1);
+    light_star2.position.set(0,0,0);
     scene.add(light_star2);
     let time = new Date() /1000
 
@@ -52,10 +52,5 @@ export function Aries() {
         renderer.render( scene, camera );
     }
     animate()
-
-
-
-
-
 
 }

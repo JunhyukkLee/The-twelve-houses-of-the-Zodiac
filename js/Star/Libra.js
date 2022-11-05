@@ -82,18 +82,5 @@ export function Libra() {
     // scene.add(light12_8);
     // light12_8.position.set(-40, 125, -432);
 
-    const light_star7 = new THREE.PointLight(0xffffff,-1); // soft white light
-    light_star7.position.set(300, 300, 500);
-    scene.add(light_star7);
-    let time = new Date() /1000
 
-    function animate() {
-        let curTime;
-        curTime = new Date()/1000
-        requestAnimationFrame( animate );
-        light_star7.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
-
-        renderer.render( scene, camera );
-    }
-    animate()
 }

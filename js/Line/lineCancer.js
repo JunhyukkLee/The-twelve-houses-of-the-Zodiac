@@ -90,7 +90,6 @@ function lineT32(){
     }
     if (xdt32 > -325) {
         cancelAnimationFrame(reqT32);
-        console.log(xdt32,ydt32,zdt32);
         anistat4 = false;
     }
     xdt32 = xdt32 + 0.05;

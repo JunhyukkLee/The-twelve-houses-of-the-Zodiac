@@ -118,18 +118,5 @@ export function Aquarius() {
 
 
 
-    const light_star = new THREE.PointLight(0xffffff,-1); // soft white light
-    light_star.position.set(300, 300, 500);
-    scene.add(light_star);
-    let time = new Date() /1000
-
-    function animate() {
-        let curTime;
-        curTime = new Date()/1000
-        requestAnimationFrame( animate );
-        light_star.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
-
-        renderer.render( scene, camera );
-    }
-    animate()
+ 
 }

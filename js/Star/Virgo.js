@@ -125,19 +125,6 @@ export function Virgo() {
     // scene.add(light11_13);
     // light11_13.position.set(-40, 125, -432);
 
-    const light_star12 = new THREE.PointLight(0xffffff,-1); // soft white light
-    light_star12.position.set(300, 300, 500);
-    scene.add(light_star12);
-    let time = new Date() /1000
 
-    function animate() {
-        let curTime;
-        curTime = new Date()/1000
-        requestAnimationFrame( animate );
-        light_star12.intensity =4* (Math.abs(Math.sin((1 / 3) * Math.PI * (curTime-time))))
-
-        renderer.render( scene, camera );
-    }
-    animate()
 
 }

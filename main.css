@@ -7,6 +7,14 @@
 	padding-left: 2vw;
 	padding-top: 3vw;
 }
+.controls_2 {
+	position: absolute;
+	justify-content: left;
+	margin: 0;
+	padding-left: 80vw;
+	padding-top: 3vw;
+}
+
 
 .btn,
 .btn_open {

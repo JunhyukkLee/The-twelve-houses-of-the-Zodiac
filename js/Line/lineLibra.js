@@ -102,7 +102,7 @@ function lineT45(){
     }
     if (xdt45 > -246) {
         cancelAnimationFrame(reqT45);
-        console.log(xdt45,ydt45,zdt45);
+      
         anistat4 = false;
     }
     xdt45 = xdt45 + 0.24;
@@ -141,7 +141,7 @@ function lineT26(){
     }
     if (xdt26 < -342) {
         cancelAnimationFrame(reqT26);
-        console.log(xdt26,ydt26,zdt26);
+       
         anistat6 = false;
     }
     xdt26 = xdt26 - 0.7;
@@ -161,7 +161,7 @@ function lineT67(){
     }
     if (xdt67 > -322) {
         cancelAnimationFrame(reqT67);
-        console.log(xdt67,ydt67,zdt67);
+       
         anistat7 = false;
     }
     xdt67 = xdt67 + 0.2;
@@ -181,7 +181,7 @@ function lineT78(){
     }
     if (xdt78 < -332) {
         cancelAnimationFrame(reqT78);
-        console.log(xdt78,ydt78,zdt78);
+       
         anistat8 = false;
     }
     xdt78 = xdt78 - 0.1;
