@@ -35,4 +35,4 @@ Users can see the zodiac sign at a glance in virtual space, and use the mouse an
 
 * 함민혁
 
-* 임윤수
+* 이연희
