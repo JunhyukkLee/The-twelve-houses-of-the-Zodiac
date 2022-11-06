@@ -58,6 +58,7 @@ const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
 const torusMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
 
+// Star
 Taurus();
 Leo();
 Cancer();
