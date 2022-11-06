@@ -5,7 +5,7 @@ Computer Graphics Termproject Team A &lt; The-twelve-houses-of-the-Zodiac >
 
 We implemented a constellation in virtual space by 3D modeling 12 constellations that divide the Sun's orbit called zodiac signs.
 
-##Project intro
+## Project intro
 
 Users can see the zodiac sign at a glance in virtual space, and use the mouse and button to zoom in on the constellation they want with animation.
 
