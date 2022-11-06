@@ -32,9 +32,21 @@ Users can see the zodiac sign at a glance in virtual space, and use the mouse an
 ## Team members
 
 * 이준혁
+  * Star annual movement
+  * Line animation 
+  * Design Graphic
 
 * 임윤수
+  * Smooth moving
+  * Zodiac, birthday button
+  * Design Graphic
 
 * 함민혁
+  * Star sphere 
+  * twinkle animation
+  * Design Graphic
 
 * 이연희
+  * Star sphere
+  * Handling earth and sun
+  * Design Graphic
