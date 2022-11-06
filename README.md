@@ -20,15 +20,6 @@ Users can see the zodiac sign at a glance in virtual space, and use the mouse an
 
 ## Library
 
-
-* webgl-utils.js: standard utilities from google to set up a webgl context
-
-* MV.js: our matrix/vector package. Documentation on website
-
-* initShaders.js: functions to initialize shaders in the html file
-
-* initShaders2.js: functions to initialize shaders that are in separate files
-
 * Three.js
 
 * Tween.js
