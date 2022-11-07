@@ -51,8 +51,8 @@ const earthTexture = loader.load("./images/earth.jpg");
 const sunTexture = loader.load("./images/sun.jpg");
 
 // Set Materials
-const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
-const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture }); 
+const earthMaterial = new THREE.MeshBasicMaterial({ map: earthTexture });
+const sunMaterial = new THREE.MeshBasicMaterial({ map: sunTexture });
 
 // Set Mesh
 const geometry = new THREE.SphereGeometry(1, 32, 32); // (radius, widthSegments, heightSegments)
@@ -90,7 +90,7 @@ scene.add(sunTorus);
 const earthGroup = new THREE.Group();
 const earthMesh = new THREE.Mesh(geometry, earthMaterial);
 earthMesh.rotation.x = -0.37 * Math.PI; // 0.37
-createPlanet(scene, earthMesh, earthGroup, 75, 0, 0, 6);
+createPlanet(scene, earthMesh, earthGroup, 75, 0, 0, 12);
 
 var earthTorusGeometry = new THREE.TorusGeometry(75, 0.00003, 50, 100);
 const earthTorus = new THREE.Mesh(earthTorusGeometry, torusMaterial);
@@ -151,12 +151,10 @@ document.getElementById("btn_Aries").onclick = function (event) {
         var stars1 = AriesBackground(480, 100)
         scene.add(stars1);
     }
-    if (cameraMove == true) {
+    if (cameraMove === true) {
         cameraMove = false;
         earthTorus.remove(camera);
     }
-    // controls.reset();
-    // camera.position.set(-20, -20, 20);
     tweenCamera(camera, positions[0], 3000);
     lineAries();
 };
@@ -301,7 +299,7 @@ document.getElementById("btn_Capricon").onclick = function (event) {
     }
     // controls.reset();
     // camera.position.set(-15, 0, -10);
-    tweenCamera(camera, positions[9], 3000);
+    tweenCamera(camera, positions[9], 1000);
     lineCapricorn();
 };
 
@@ -369,9 +367,9 @@ document.getElementById("prompt").onclick = function (event) {
         var stars3 = GeminiBackground(480, 100)
         scene.add(stars3);
 
-        controls.reset();
-        camera.position.set(5, -5, 20);
-        lineJemini();
+        //controls.reset();
+        tweenCamera(camera, positions[2], 3000);
+        lineGemini();
     }
 
     if (zod == 'Cancer') {
@@ -564,14 +562,14 @@ document.getElementById("btn_binggle").onclick = function (event) {
         tweenCamera(camera, positions[12], 3000);
         earthTorus.add(camera);
     }
-    //camera.lookAt(0,0,0);
+    camera.lookAt(0,0,0);
     var binggle = BinggleBackground(480, 100);
     scene.add(binggle);
     lineAquarius();
     lineAries();
     lineCancer();
     lineCapricorn();
-    lineJemini();
+    lineGemini();
     lineLeo();
     lineLibra();
     linePisces();
@@ -587,7 +585,7 @@ function tweenCamera(camera, position, duration) {
         y: position[1],
         z: position[2]
     }, duration)
-        .easing(TWEEN.Easing.Quadratic.InOut)
+        .easing(TWEEN.Easing.Quadratic.Out)
         .start();
 }
 
@@ -601,11 +599,11 @@ window.addEventListener('resize', onWindowResize);
 
 const animate = function () {
 
-    requestAnimationFrame(animate);
-
     // Use trackball
     controls.update();
     TWEEN.update();
+
+    requestAnimationFrame(animate);
 
     earthMesh.rotation.y += earth_rt_speed; // earth rotate
     earthTorus.rotation.z -= earth_rt_speed; // earth orbit
@@ -792,7 +790,7 @@ function BinggleBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
         new THREE.MeshBasicMaterial({
-            map: THREE.ImageUtils.loadTexture('images/binggle.png'),
+            map: THREE.ImageUtils.loadTexture('images/img_1.png'),
             side: THREE.BackSide
         })
     );

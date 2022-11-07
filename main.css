@@ -1,18 +1,19 @@
 @charset "utf-8";
-
-.controls {
+.control{
+	margin-top: 24px;
+	margin-left: 10px;
+	display: flex;
 	position: absolute;
-	justify-content: left;
-	margin: 0;
-	padding-left: 2vw;
-	padding-top: 3vw;
+	justify-content: space-between;
+}
+.controls {
+	float:left;
 }
 .controls_2 {
-	position: absolute;
-	justify-content: left;
-	margin: 0;
-	padding-left: 80vw;
-	padding-top: 3vw;
+	float: right;
+	display:inline-block;
+	margin-left: 82vw;
+
 }
 
 
