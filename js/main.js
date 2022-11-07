@@ -764,7 +764,7 @@ function BinggleBackground(radius, segments) {
     return new THREE.Mesh(
         new THREE.SphereGeometry(radius, segments, segments),
         new THREE.MeshBasicMaterial({
-            map: THREE.ImageUtils.loadTexture('images/img_1.png'),
+            map: THREE.ImageUtils.loadTexture('images/binggle.png'),
             side: THREE.BackSide
         })
     );
