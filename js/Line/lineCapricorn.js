@@ -56,8 +56,8 @@ function lineT12(){
         cancelAnimationFrame(reqT12);
         anistat1 = false;
     }
-    xdt12 = xdt12 + 0.1;
-    ydt12 = ydt12 - 0.25;
+    xdt12 = xdt12 + 0.05;
+    ydt12 = ydt12 - 0.125;
 
     l12.push(new THREE.Vector3(300, 85, 320));
     l12.push(new THREE.Vector3(xdt12, ydt12, zdt12));
@@ -75,9 +75,9 @@ function lineT23(){
         cancelAnimationFrame(reqT23);
         anistat2 = false;
     }
-    xdt23 = xdt23 + 0.6;
-    ydt23 = ydt23 - 0.7;
-    zdt23 = zdt23 - 0.65;
+    xdt23 = xdt23 + 0.3;
+    ydt23 = ydt23 - 0.35;
+    zdt23 = zdt23 - 0.325;
     l23.push(new THREE.Vector3(310, 60, 320));
     l23.push(new THREE.Vector3(xdt23, ydt23, zdt23));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l23);
@@ -95,9 +95,9 @@ function lineT34(){
         cancelAnimationFrame(reqT34);
         anistat3 = false;
     }
-    xdt34 = xdt34 + 0.2;
-    ydt34 = ydt34 - 0.2;
-    zdt34 = zdt34 - 0.3;
+    xdt34 = xdt34 + 0.1;
+    ydt34 = ydt34 - 0.1;
+    zdt34 = zdt34 - 0.15;
     l34.push(new THREE.Vector3(370, -10, 255));
     l34.push(new THREE.Vector3(xdt34, ydt34, zdt34));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l34);
@@ -114,9 +114,9 @@ function lineT45(){
         cancelAnimationFrame(reqT45);
         anistat4 = false;
     }
-    xdt45 = xdt45 + 0.1;
-    ydt45 = ydt45 - 0.15;
-    zdt45 = zdt45 - 0.25;
+    xdt45 = xdt45 + 0.05;
+    ydt45 = ydt45 - 0.075;
+    zdt45 = zdt45 - 0.125;
     l45.push(new THREE.Vector3(390, -30, 220));
     l45.push(new THREE.Vector3(xdt45, ydt45, zdt45));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l45);
@@ -133,9 +133,9 @@ function lineT56(){
         cancelAnimationFrame(reqT56);
         anistat5 = false;
     }
-    xdt56 = xdt56 + 0.05;
-    ydt56 = ydt56 - 0.1;
-    zdt56 = zdt56 - 0.15;
+    xdt56 = xdt56 + 0.025;
+    ydt56 = ydt56 - 0.05;
+    zdt56 = zdt56 - 0.075;
     l56.push(new THREE.Vector3(400, -45, 200));
     l56.push(new THREE.Vector3(xdt56, ydt56, zdt56));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l56);
@@ -152,9 +152,9 @@ function lineT67(){
         cancelAnimationFrame(reqT67);
         anistat6 = false;
     }
-    xdt67 = xdt67 - 0.15;
-    ydt67 = ydt67 - 0.05;
-    zdt67 = zdt67 + 0.3;
+    xdt67 = xdt67 - 0.075;
+    ydt67 = ydt67 - 0.025;
+    zdt67 = zdt67 + 0.15;
     l67.push(new THREE.Vector3(405, -55, 185));
     l67.push(new THREE.Vector3(xdt67, ydt67, zdt67));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l67);
@@ -172,9 +172,9 @@ function lineT78(){
         cancelAnimationFrame(reqT78);
         anistat7 = false;
     }
-    xdt78 = xdt78 - 0.15;
-    ydt78 = ydt78 - 0.1;
-    zdt78 = zdt78 + 0.25;
+    xdt78 = xdt78 - 0.075;
+    ydt78 = ydt78 - 0.05;
+    zdt78 = zdt78 + 0.125;
     l78.push(new THREE.Vector3(390, -60, 215));
     l78.push(new THREE.Vector3(xdt78, ydt78, zdt78));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l78);
@@ -191,9 +191,9 @@ function lineT810(){
         cancelAnimationFrame(reqT810);
         anistat8 = false;
     }
-    xdt810 = xdt810 - 0.5;
+    xdt810 = xdt810 - 0.25;
     ydt810 = ydt810 - 0;
-    zdt810 = zdt810 + 0.6;
+    zdt810 = zdt810 + 0.3;
     l810.push(new THREE.Vector3(375, -70, 240));
     l810.push(new THREE.Vector3(xdt810, ydt810, zdt810));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l810);
@@ -210,9 +210,9 @@ function lineT110(){
         cancelAnimationFrame(reqT110);
         anistat9= false;
     }
-    xdt110 = xdt110 + 0.25;
-    ydt110 = ydt110 - 1.55;
-    zdt110 = zdt110 - 0.2;
+    xdt110 = xdt110 + 0.125;
+    ydt110 = ydt110 - 0.755;
+    zdt110 = zdt110 - 0.1;
     l110.push(new THREE.Vector3(300, 85, 320));
     l110.push(new THREE.Vector3(xdt110, ydt110, zdt110));
     const LineGeometry3 = new THREE.BufferGeometry().setFromPoints(l110);
